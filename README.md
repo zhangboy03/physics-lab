@@ -28,5 +28,6 @@ npm run lint
 
 - `vite.config.ts` 使用 `base: './'`
 - 路由使用 `HashRouter`
+- 发布产物可直接放到 `docs/` 目录由 GitHub Pages 托管
 
 因此无论托管在 `username.github.io/repo-name/` 还是其他静态目录下，都可以直接打开。
