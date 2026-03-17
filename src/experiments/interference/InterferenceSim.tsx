@@ -3,6 +3,7 @@ import SimCanvas from '../../components/SimCanvas';
 import ControlPanel from '../../components/ControlPanel';
 import RealtimeGraph from '../../components/RealtimeGraph';
 import FormulaCard from '../../components/FormulaCard';
+import MathText from '../../components/MathText';
 import { type ParamDef } from '../types';
 import { createInterferenceEngine, type InterferenceParams } from './interferenceEngine';
 import { drawInterference } from './interferenceRenderer';
@@ -15,9 +16,9 @@ const paramDefs: ParamDef[] = [
 ];
 
 const formulas = [
-  'd\u00B7sin\u03B8 = n\u03BB (\u660E\u7EB9)',
-  'd\u00B7sin\u03B8 = (n+\u00BD)\u03BB (\u6697\u7EB9)',
-  '\u0394x = \u03BBL/d',
+  String.raw`d\sin\theta = n\lambda`,
+  String.raw`d\sin\theta = \left(n+\frac{1}{2}\right)\lambda`,
+  String.raw`\Delta x = \frac{\lambda L}{d}`,
 ];
 
 const DT = 1 / 60;
@@ -179,7 +180,10 @@ function InterferenceSim() {
             onToggle={handleToggle}
           >
             <div className="rounded-[1rem] border border-[rgba(64,52,36,0.08)] bg-[rgba(255,255,255,0.45)] p-4 text-[13px] leading-6 text-[var(--color-ink-soft)]">
-              观察屏上条纹间距如何随 `λ`、`d`、`L` 的变化而改变。下方曲线显示的是屏幕上沿 `y`
+              观察屏上条纹间距如何随 <MathText math={String.raw`\lambda`} className="math-inline" />、
+              <MathText math={String.raw`d`} className="math-inline" />、
+              <MathText math={String.raw`L`} className="math-inline" /> 的变化而改变。
+              下方曲线显示的是屏幕上沿 <MathText math={String.raw`y`} className="math-inline" />
               方向的归一化光强分布。
             </div>
           </ControlPanel>

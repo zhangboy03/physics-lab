@@ -448,6 +448,16 @@ input[type="range"]::-webkit-slider-thumb:active {
   border-radius: 1rem;
 }
 
+.formula-chip .katex-display {
+  margin: 0;
+}
+
+.formula-chip .katex,
+.math-inline .katex {
+  color: var(--color-ink);
+  font-size: 1.02em;
+}
+
 .sidebar-link {
   position: relative;
   display: flex;

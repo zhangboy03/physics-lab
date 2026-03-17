@@ -18,10 +18,10 @@ const paramDefs: ParamDef[] = [
 ];
 
 const formulas = [
-  'p = mv',
-  '\u03A3p\u524D = \u03A3p\u540E',
-  '\u5F39\u6027: \u00BDm\u2081v\u2081\u00B2 + \u00BDm\u2082v\u2082\u00B2 = const',
-  '\u975E\u5F39\u6027: v_f = (m\u2081v\u2081+m\u2082v\u2082)/(m\u2081+m\u2082)',
+  String.raw`p = mv`,
+  String.raw`\sum p_{\text{before}} = \sum p_{\text{after}}`,
+  String.raw`\frac{1}{2}m_1v_1^2 + \frac{1}{2}m_2v_2^2 = \text{const}`,
+  String.raw`v_f = \frac{m_1v_1 + m_2v_2}{m_1 + m_2}`,
 ];
 
 const DT = 1 / 60;
@@ -262,22 +262,22 @@ function CollisionSim() {
           <div className="grid gap-4 md:grid-cols-2">
             {momentum ? (
               <ComparisonBar
-                title="\u52A8\u91CF\u5BF9\u6BD4 (kg\u00B7m/s)"
+                title="动量对比 (kg·m/s)"
                 before={momentum.before}
                 after={momentum.after}
-                label1="\u78B0\u649E\u524D \u03A3p"
-                label2="\u78B0\u649E\u540E \u03A3p"
+                label1="碰撞前 Σp"
+                label2="碰撞后 Σp"
                 color1="#315ca8"
                 color2="#3f6f55"
               />
             ) : null}
             {ke ? (
               <ComparisonBar
-                title="\u52A8\u80FD\u5BF9\u6BD4 (J)"
+                title="动能对比 (J)"
                 before={ke.before}
                 after={ke.after}
-                label1="\u78B0\u649E\u524D \u03A3KE"
-                label2="\u78B0\u649E\u540E \u03A3KE"
+                label1="碰撞前 ΣKE"
+                label2="碰撞后 ΣKE"
                 color1="#c45a28"
                 color2="#8e3928"
                 showLoss={collisionType === 'inelastic'}
@@ -295,8 +295,8 @@ function CollisionSim() {
             <div className="mt-5">
               <ToggleGroup
                 options={[
-                  { value: 'elastic' as const, label: '\u5F39\u6027\u78B0\u649E' },
-                  { value: 'inelastic' as const, label: '\u5B8C\u5168\u975E\u5F39\u6027' },
+                  { value: 'elastic' as const, label: '弹性碰撞' },
+                  { value: 'inelastic' as const, label: '完全非弹性' },
                 ]}
                 value={collisionType}
                 onChange={(v) => {

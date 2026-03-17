@@ -25,10 +25,10 @@ const PARAM_DEFS: ParamDef[] = [
 ];
 
 const FORMULAS = [
-  'x = v\u2080\u00b7cos\u03b1\u00b7t',
-  'y = h\u2080 + v\u2080\u00b7sin\u03b1\u00b7t - \u00bdgt\u00b2',
-  'R = v\u2080\u00b2\u00b7sin2\u03b1 / g',
-  'T = 2v\u2080\u00b7sin\u03b1 / g',
+  String.raw`x = v_0\cos\alpha \cdot t`,
+  String.raw`y = h_0 + v_0\sin\alpha \cdot t - \frac{1}{2}gt^2`,
+  String.raw`R = \frac{v_0^2\sin(2\alpha)}{g}`,
+  String.raw`T = \frac{2v_0\sin\alpha}{g}`,
 ];
 
 const DT = 1 / 60; // 60 FPS physics step

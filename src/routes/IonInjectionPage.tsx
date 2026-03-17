@@ -6,6 +6,7 @@ import {
 } from 'react'
 import { Link } from 'react-router-dom'
 import ControlPanel from '../components/ControlPanel'
+import MathText from '../components/MathText'
 
 type ParticleId = 'b-plus' | 'bf2-plus'
 type ExitKind = 'wafer' | 'outer' | 'inner' | 'unknown'
@@ -446,14 +447,14 @@ export default function IonInjectionPage() {
           <div className="grid gap-4 sm:grid-cols-3">
             <div className="metric-tile">
               <div className="panel-caption">速度比</div>
-              <div className="mono-data mt-3 text-[24px] font-semibold text-[var(--color-ink)]">
-                7 : √11
+              <div className="mt-3 text-[24px] font-semibold text-[var(--color-ink)]">
+                <MathText math={String.raw`7 : \sqrt{11}`} className="math-inline" />
               </div>
             </div>
             <div className="metric-tile">
               <div className="panel-caption">题设半径</div>
-              <div className="mono-data mt-3 text-[24px] font-semibold text-[var(--color-ink)]">
-                r₁ = 2r
+              <div className="mt-3 text-[24px] font-semibold text-[var(--color-ink)]">
+                <MathText math={String.raw`r_1 = 2r`} className="math-inline" />
               </div>
             </div>
             <div className="metric-tile">
@@ -473,10 +474,28 @@ export default function IonInjectionPage() {
             <h2 className="display-title mt-4 text-[2.2rem] text-[var(--color-ink)]">题目条件</h2>
             <div className="paper-rule mt-4" />
             <div className="mt-5 space-y-3 text-[15px] leading-8 text-[var(--color-ink-soft)]">
-              <p>磁分析器为内外半径分别为 `r` 和 `3r` 的四分之一圆环，内部存在垂直纸面向外的匀强磁场。</p>
-              <p>离子源击发 `BF₃` 气体后得到 `B⁺` 与 `BF₂⁺`，质量分别为 `11m`、`49m`，电荷量均为 `e`。</p>
-              <p>离子先经加速电场，再从 `ab` 中点 `M` 水平向右进入磁分析器。已知 `B⁺` 恰好从 `cd` 中点 `N` 射出并垂直进入晶圆平面。</p>
-              <p>求两种离子的速度大小之比，并判断 `BF₂⁺` 是否会被掺入晶圆。</p>
+              <p>
+                磁分析器为内外半径分别为 <MathText math={String.raw`r`} className="math-inline" /> 和{' '}
+                <MathText math={String.raw`3r`} className="math-inline" /> 的四分之一圆环，内部存在垂直纸面向外的匀强磁场。
+              </p>
+              <p>
+                离子源击发 <MathText math={String.raw`BF_3`} className="math-inline" /> 气体后得到{' '}
+                <MathText math={String.raw`B^+`} className="math-inline" /> 与{' '}
+                <MathText math={String.raw`BF_2^+`} className="math-inline" />，质量分别为{' '}
+                <MathText math={String.raw`11m`} className="math-inline" />、{' '}
+                <MathText math={String.raw`49m`} className="math-inline" />，电荷量均为{' '}
+                <MathText math={String.raw`e`} className="math-inline" />。
+              </p>
+              <p>
+                离子先经加速电场，再从 <MathText math={String.raw`ab`} className="math-inline" /> 中点{' '}
+                <MathText math={String.raw`M`} className="math-inline" /> 水平向右进入磁分析器。已知{' '}
+                <MathText math={String.raw`B^+`} className="math-inline" /> 恰好从{' '}
+                <MathText math={String.raw`cd`} className="math-inline" /> 中点{' '}
+                <MathText math={String.raw`N`} className="math-inline" /> 射出并垂直进入晶圆平面。
+              </p>
+              <p>
+                求两种离子的速度大小之比，并判断 <MathText math={String.raw`BF_2^+`} className="math-inline" /> 是否会被掺入晶圆。
+              </p>
             </div>
           </section>
 
@@ -488,40 +507,47 @@ export default function IonInjectionPage() {
               <div className="rounded-[1.2rem] border border-[rgba(64,52,36,0.08)] bg-[rgba(255,255,255,0.46)] p-4">
                 <div className="panel-caption">Step 1</div>
                 <p className="mt-3 text-[14px] leading-7 text-[var(--color-ink-soft)]">
-                  加速过程满足 `eU = ½mv²`，因此速度与 `1/√m` 成正比。
+                  加速过程满足 <MathText math={String.raw`eU = \frac{1}{2}mv^2`} className="math-inline" />
+                  ，因此速度与 <MathText math={String.raw`\frac{1}{\sqrt{m}}`} className="math-inline" /> 成正比。
                 </p>
                 <div className="formula-chip mono-data mt-3 px-4 py-3 text-[14px] text-[var(--color-ink)]">
-                  v(B⁺) : v(BF₂⁺) = 7 : √11
+                  <MathText math={String.raw`v(B^+) : v(BF_2^+) = 7 : \sqrt{11}`} block />
                 </div>
               </div>
 
               <div className="rounded-[1.2rem] border border-[rgba(64,52,36,0.08)] bg-[rgba(255,255,255,0.46)] p-4">
                 <div className="panel-caption">Step 2</div>
                 <p className="mt-3 text-[14px] leading-7 text-[var(--color-ink-soft)]">
-                  由于 `B⁺` 从 `M` 进入、从 `N` 射出，它在磁场中的轨道半径必为 `2r`。
+                  由于 <MathText math={String.raw`B^+`} className="math-inline" /> 从{' '}
+                  <MathText math={String.raw`M`} className="math-inline" /> 进入、从{' '}
+                  <MathText math={String.raw`N`} className="math-inline" /> 射出，它在磁场中的轨道半径必为{' '}
+                  <MathText math={String.raw`2r`} className="math-inline" />。
                 </p>
                 <div className="formula-chip mono-data mt-3 px-4 py-3 text-[14px] text-[var(--color-ink)]">
-                  B = (1/r) √(11mU / 2e)
+                  <MathText math={String.raw`B = \frac{1}{r}\sqrt{\frac{11mU}{2e}}`} block />
                 </div>
               </div>
 
               <div className="rounded-[1.2rem] border border-[rgba(64,52,36,0.08)] bg-[rgba(255,255,255,0.46)] p-4">
                 <div className="panel-caption">Step 3</div>
                 <p className="mt-3 text-[14px] leading-7 text-[var(--color-ink-soft)]">
-                  代入同一磁场后，`BF₂⁺` 的半径变为 `14√11/11 r`，比 `2r` 更大，弯折不足。
+                  代入同一磁场后，<MathText math={String.raw`BF_2^+`} className="math-inline" /> 的半径变为{' '}
+                  <MathText math={String.raw`\frac{14\sqrt{11}}{11}r`} className="math-inline" />，
+                  比 <MathText math={String.raw`2r`} className="math-inline" /> 更大，弯折不足。
                 </p>
                 <div className="formula-chip mono-data mt-3 px-4 py-3 text-[14px] text-[var(--color-ink)]">
-                  r(BF₂⁺) = 14√11 / 11 · r
+                  <MathText math={String.raw`r(BF_2^+) = \frac{14\sqrt{11}}{11}r`} block />
                 </div>
               </div>
 
               <div className="rounded-[1.2rem] border border-[rgba(64,52,36,0.08)] bg-[rgba(255,255,255,0.46)] p-4">
                 <div className="panel-caption">Step 4</div>
                 <p className="mt-3 text-[14px] leading-7 text-[var(--color-ink-soft)]">
-                  如果它要刚好从 `d` 点射出，所需轨道半径只要 `13/4 r`。实际半径更大，所以它会先撞外弧，不能进入晶圆。
+                  如果它要刚好从 <MathText math={String.raw`d`} className="math-inline" /> 点射出，所需轨道半径只要{' '}
+                  <MathText math={String.raw`\frac{13}{4}r`} className="math-inline" />。实际半径更大，所以它会先撞外弧，不能进入晶圆。
                 </p>
                 <div className="formula-chip mono-data mt-3 px-4 py-3 text-[14px] text-[var(--color-ink)]">
-                  r(d) = 13 / 4 · r {'<'} r(BF₂⁺)
+                  <MathText math={String.raw`r(d) = \frac{13}{4}r < r(BF_2^+)`} block />
                 </div>
               </div>
             </div>
@@ -666,7 +692,8 @@ export default function IonInjectionPage() {
                   {speedRatio.toFixed(2)} : 1
                 </div>
                 <p className="mt-2 text-[13px] leading-6 text-[var(--color-ink-soft)]">
-                  数值上对应 `7 : √11`，说明质量越大，同压加速后速度越小。
+                  数值上对应 <MathText math={String.raw`7 : \sqrt{11}`} className="math-inline" />
+                  ，说明质量越大，同压加速后速度越小。
                 </p>
               </div>
               <div className="rounded-[1.2rem] border border-[rgba(64,52,36,0.08)] bg-[rgba(255,255,255,0.46)] p-4">
@@ -677,7 +704,8 @@ export default function IonInjectionPage() {
                   {(pathResults['b-plus'].radius / values.r).toFixed(2)}r
                 </div>
                 <p className="mt-2 text-[13px] leading-6 text-[var(--color-ink-soft)]">
-                  题设匹配打开时应稳定接近 `2r`，这就是反推磁场的关键。
+                  题设匹配打开时应稳定接近 <MathText math={String.raw`2r`} className="math-inline" />
+                  ，这就是反推磁场的关键。
                 </p>
               </div>
               <div className="rounded-[1.2rem] border border-[rgba(64,52,36,0.08)] bg-[rgba(255,255,255,0.46)] p-4">
@@ -688,7 +716,8 @@ export default function IonInjectionPage() {
                   {(hypotheticalRadiusFromD / values.r).toFixed(2)}r
                 </div>
                 <p className="mt-2 text-[13px] leading-6 text-[var(--color-ink-soft)]">
-                  只要实际半径大于 `13/4 r`，轨迹就会先撞外弧，不能从 `cd` 射出。
+                  只要实际半径大于 <MathText math={String.raw`\frac{13}{4}r`} className="math-inline" />
+                  ，轨迹就会先撞外弧，不能从 <MathText math={String.raw`cd`} className="math-inline" /> 射出。
                 </p>
               </div>
             </div>

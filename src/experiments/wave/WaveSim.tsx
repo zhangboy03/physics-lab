@@ -19,10 +19,10 @@ const paramDefs: ParamDef[] = [
 ]
 
 const formulas = [
-  'y(x,t) = A·sin(ωt - kx)',
-  'λ = v / f',
-  'T = 1 / f',
-  '波速由介质决定，振幅与频率由驱动决定',
+  String.raw`y(x,t) = A\sin(\omega t - kx)`,
+  String.raw`\lambda = \frac{v}{f}`,
+  String.raw`T = \frac{1}{f}`,
+  String.raw`v = \lambda f`,
 ]
 
 const NUM_POINTS = 240

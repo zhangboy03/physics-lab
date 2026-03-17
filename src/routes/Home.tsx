@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import MathText from '../components/MathText'
 import { curriculum, getAvailableTopics } from '../data/curriculum'
 import {
   getCategoryMark,
@@ -135,7 +136,8 @@ export default function Home() {
                 </h2>
                 <p className="mt-2 text-[15px] leading-7 text-[var(--color-ink-soft)]">
                   这页会把题干、关键计算和磁场轨迹实验放在同一屏里。学生既能读懂
-                  `r₁ = 2r`、`r₂ = 14√11/11 r` 的来源，也能直接验证 BF₂⁺
+                  <MathText math={String.raw`r_1 = 2r`} className="math-inline" />、
+                  <MathText math={String.raw`r_2 = \frac{14\sqrt{11}}{11}r`} className="math-inline" /> 的来源，也能直接验证 BF₂⁺
                   为什么进不了晶圆。
                 </p>
               </div>
@@ -157,7 +159,7 @@ export default function Home() {
               <div className="topic-card lab-shell rounded-[1.25rem] p-4">
                 <div className="panel-caption">Part 3</div>
                 <p className="mt-3 text-[14px] leading-6 text-[var(--color-ink)]">
-                  动态检查 BF₂⁺ 是否会从 `cd` 边射出并进入晶圆。
+                  动态检查 BF₂⁺ 是否会从 <MathText math={String.raw`cd`} className="math-inline" /> 边射出并进入晶圆。
                 </p>
               </div>
             </div>

@@ -1,3 +1,5 @@
+import MathText from './MathText'
+
 interface FormulaCardProps {
   formulas: string[]
   title?: string
@@ -18,7 +20,7 @@ export default function FormulaCard({
             key={`${formula}-${index}`}
             className="formula-chip mono-data px-4 py-3 text-[14px] text-[var(--color-ink)]"
           >
-            {formula}
+            <MathText math={formula} block className="block" />
           </div>
         ))}
       </div>

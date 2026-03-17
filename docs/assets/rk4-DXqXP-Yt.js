@@ -1,0 +1,1 @@
+function u(c,o){return c.map((n,r)=>n+o[r])}function k(c,o){return c.map(n=>n*o)}function s(c,o,n,r){const p=c(o,n),i=c(o+r/2,u(n,k(p,r/2))),e=c(o+r/2,u(n,k(i,r/2))),m=c(o+r,u(n,k(e,r)));return u(n,k(u(u(p,k(i,2)),u(k(e,2),m)),r/6))}export{s as r};

@@ -16,9 +16,9 @@ const paramDefs: ParamDef[] = [
 ];
 
 const formulas = [
-  "θ'' = -(g/L)·sinθ",
-  'T = 2π√(L/g)',
-  'E = ½mL²ω² + mgL(1-cosθ)',
+  String.raw`\ddot{\theta} = -\frac{g}{L}\sin\theta`,
+  String.raw`T = 2\pi\sqrt{\frac{L}{g}}`,
+  String.raw`E = \frac{1}{2}mL^2\omega^2 + mgL(1-\cos\theta)`,
 ];
 
 const DT = 1 / 60;

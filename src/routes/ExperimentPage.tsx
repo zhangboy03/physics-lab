@@ -1,23 +1,29 @@
-import type { ComponentType } from 'react'
+import { Suspense, lazy } from 'react'
+import type { ComponentType, LazyExoticComponent } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Sidebar from '../components/Sidebar'
 import { curriculum, getAvailableTopics } from '../data/curriculum'
 import { getSectionMark, getTopicMark, hexToRgbString } from '../lib/topicMarks'
 
-import PendulumSim from '../experiments/pendulum/PendulumSim'
-import ProjectileSim from '../experiments/projectile/ProjectileSim'
-import WaveSim from '../experiments/wave/WaveSim'
-import SpringSim from '../experiments/spring/SpringSim'
-import CollisionSim from '../experiments/collision/CollisionSim'
-import InterferenceSim from '../experiments/interference/InterferenceSim'
-
-const experimentComponents: Record<string, ComponentType> = {
-  pendulum: PendulumSim,
-  projectile: ProjectileSim,
-  wave: WaveSim,
-  spring: SpringSim,
-  collision: CollisionSim,
-  interference: InterferenceSim,
+const experimentComponents: Record<string, LazyExoticComponent<ComponentType>> = {
+  'uniform-accel': lazy(() => import('../experiments/uniform-accel/UniformAccelSim')),
+  pendulum: lazy(() => import('../experiments/pendulum/PendulumSim')),
+  projectile: lazy(() => import('../experiments/projectile/ProjectileSim')),
+  circular: lazy(() => import('../experiments/circular/CircularSim')),
+  newton: lazy(() => import('../experiments/newton/NewtonSim')),
+  gravity: lazy(() => import('../experiments/gravity/GravitySim')),
+  wave: lazy(() => import('../experiments/wave/WaveSim')),
+  spring: lazy(() => import('../experiments/spring/SpringSim')),
+  energy: lazy(() => import('../experiments/energy/EnergySim')),
+  collision: lazy(() => import('../experiments/collision/CollisionSim')),
+  interference: lazy(() => import('../experiments/interference/InterferenceSim')),
+  coulomb: lazy(() => import('../experiments/coulomb/CoulombSim')),
+  ohm: lazy(() => import('../experiments/ohm/OhmSim')),
+  lorentz: lazy(() => import('../experiments/lorentz/LorentzSim')),
+  faraday: lazy(() => import('../experiments/faraday/FaradaySim')),
+  brownian: lazy(() => import('../experiments/brownian/BrownianSim')),
+  refraction: lazy(() => import('../experiments/refraction/RefractionSim')),
+  photoelectric: lazy(() => import('../experiments/photoelectric/PhotoelectricSim')),
 }
 
 export default function ExperimentPage() {
@@ -128,7 +134,15 @@ export default function ExperimentPage() {
 
         <div className="min-w-0 flex-1 space-y-6">
           <div className="lab-panel rounded-[1.8rem] p-4 sm:p-6">
-            <SimComponent />
+            <Suspense
+              fallback={(
+                <div className="rounded-[1.4rem] border border-[rgba(64,52,36,0.08)] bg-[rgba(255,255,255,0.5)] px-6 py-16 text-center text-[15px] text-[var(--color-ink-soft)]">
+                  正在加载实验模块…
+                </div>
+              )}
+            >
+              <SimComponent />
+            </Suspense>
           </div>
 
           <section className="grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">

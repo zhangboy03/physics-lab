@@ -32,9 +32,9 @@ export const curriculum: Section[] = [
         title: '运动学',
         icon: '🏃',
         topics: [
-          { id: 'uniform-accel', title: '匀变速直线运动', available: false, icon: '📏', color: '#8E8E93', description: '速度-时间图像、位移公式、自由落体' },
+          { id: 'uniform-accel', title: '匀变速直线运动', available: true, icon: '📏', color: '#5f8be0', description: '速度-时间图像、位移公式、自由落体' },
           { id: 'projectile', title: '抛体运动', available: true, icon: '🎯', color: '#FF9500', description: '斜抛、平抛、运动分解与合成' },
-          { id: 'circular', title: '圆周运动', available: false, icon: '🔄', color: '#8E8E93', description: '向心加速度、角速度、线速度' },
+          { id: 'circular', title: '圆周运动', available: true, icon: '🔄', color: '#e18a4b', description: '向心加速度、角速度、线速度' },
         ],
       },
       {
@@ -42,8 +42,8 @@ export const curriculum: Section[] = [
         title: '动力学',
         icon: '💪',
         topics: [
-          { id: 'newton', title: '牛顿运动定律', available: false, icon: '📐', color: '#8E8E93', description: '惯性、F=ma、作用与反作用' },
-          { id: 'gravity', title: '万有引力', available: false, icon: '🌍', color: '#8E8E93', description: '开普勒定律、卫星运动、宇宙速度' },
+          { id: 'newton', title: '牛顿运动定律', available: true, icon: '📐', color: '#c45a28', description: '惯性、F=ma、作用与反作用' },
+          { id: 'gravity', title: '万有引力', available: true, icon: '🌍', color: '#315ca8', description: '开普勒定律、卫星运动、宇宙速度' },
           { id: 'spring', title: '弹簧振子（简谐运动）', available: true, icon: '🔩', color: '#AF52DE', description: '胡克定律、简谐运动、能量转换' },
         ],
       },
@@ -52,7 +52,7 @@ export const curriculum: Section[] = [
         title: '能量与动量',
         icon: '⚡',
         topics: [
-          { id: 'energy', title: '功和能量守恒', available: false, icon: '🔋', color: '#8E8E93', description: '动能定理、机械能守恒' },
+          { id: 'energy', title: '功和能量守恒', available: true, icon: '🔋', color: '#3f6f55', description: '动能定理、机械能守恒' },
           { id: 'collision', title: '碰撞与动量守恒', available: true, icon: '💥', color: '#FF2D55', description: '弹性碰撞、完全非弹性碰撞' },
         ],
       },
@@ -78,7 +78,7 @@ export const curriculum: Section[] = [
         title: '电场',
         icon: '🔌',
         topics: [
-          { id: 'coulomb', title: '库仑定律与电场', available: false, icon: '⚡', color: '#8E8E93', description: '点电荷电场、电场线、等势线' },
+          { id: 'coulomb', title: '库仑定律与电场', available: true, icon: '⚡', color: '#315ca8', description: '点电荷电场、电场线、等势线' },
         ],
       },
       {
@@ -86,7 +86,7 @@ export const curriculum: Section[] = [
         title: '电路',
         icon: '🔋',
         topics: [
-          { id: 'ohm', title: '欧姆定律', available: false, icon: '🔌', color: '#8E8E93', description: '串并联、内阻、功率' },
+          { id: 'ohm', title: '欧姆定律', available: true, icon: '🔌', color: '#c45a28', description: '串并联、内阻、功率' },
         ],
       },
       {
@@ -94,7 +94,7 @@ export const curriculum: Section[] = [
         title: '磁场',
         icon: '🧲',
         topics: [
-          { id: 'lorentz', title: '洛伦兹力', available: false, icon: '🧲', color: '#8E8E93', description: '带电粒子在磁场中的运动' },
+          { id: 'lorentz', title: '洛伦兹力', available: true, icon: '🧲', color: '#5f6dd7', description: '带电粒子在磁场中的运动' },
         ],
       },
       {
@@ -102,7 +102,7 @@ export const curriculum: Section[] = [
         title: '电磁感应',
         icon: '🔁',
         topics: [
-          { id: 'faraday', title: '法拉第电磁感应', available: false, icon: '🔁', color: '#8E8E93', description: '磁通量变化、感应电动势' },
+          { id: 'faraday', title: '法拉第电磁感应', available: true, icon: '🔁', color: '#4f8fae', description: '磁通量变化、感应电动势' },
         ],
       },
     ],
@@ -117,7 +117,7 @@ export const curriculum: Section[] = [
         title: '分子动理论',
         icon: '🔬',
         topics: [
-          { id: 'brownian', title: '分子运动', available: false, icon: '🔬', color: '#8E8E93', description: '布朗运动、分子力、内能' },
+          { id: 'brownian', title: '分子运动', available: true, icon: '🔬', color: '#4d8d74', description: '布朗运动、分子力、内能' },
         ],
       },
     ],
@@ -132,7 +132,7 @@ export const curriculum: Section[] = [
         title: '几何光学',
         icon: '🔍',
         topics: [
-          { id: 'refraction', title: '折射与全反射', available: false, icon: '🔍', color: '#8E8E93', description: '折射定律、全反射、光纤' },
+          { id: 'refraction', title: '折射与全反射', available: true, icon: '🔍', color: '#2f6db0', description: '折射定律、全反射、光纤' },
         ],
       },
     ],
@@ -147,7 +147,7 @@ export const curriculum: Section[] = [
         title: '量子初步',
         icon: '⚛️',
         topics: [
-          { id: 'photoelectric', title: '光电效应', available: false, icon: '⚛️', color: '#8E8E93', description: '爱因斯坦方程、逸出功、截止频率' },
+          { id: 'photoelectric', title: '光电效应', available: true, icon: '⚛️', color: '#d36d3d', description: '爱因斯坦方程、逸出功、截止频率' },
         ],
       },
     ],

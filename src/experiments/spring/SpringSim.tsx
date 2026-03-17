@@ -16,10 +16,10 @@ const paramDefs: ParamDef[] = [
 ];
 
 const formulas = [
-  'F = -kx',
-  'x(t) = A\u00b7cos(\u03c9t + \u03c6)',
-  '\u03c9 = \u221a(k/m)',
-  'T = 2\u03c0\u221a(m/k)',
+  String.raw`F = -kx`,
+  String.raw`x(t) = A\cos(\omega t + \varphi)`,
+  String.raw`\omega = \sqrt{\frac{k}{m}}`,
+  String.raw`T = 2\pi\sqrt{\frac{m}{k}}`,
 ];
 
 const DT = 1 / 60;
