@@ -54,9 +54,9 @@ export default function Layout() {
 
           <div className="hidden text-right md:block">
             <div className="text-[11px] uppercase tracking-[0.2em] text-[var(--color-ink-soft)]">
-              Ready For GitHub Pages
+              分享链接已就绪
             </div>
-            <div className="text-[12px] text-[var(--color-ink)]">Hash routing + relative assets</div>
+            <div className="text-[12px] text-[var(--color-ink)]">GitHub Pages · Hash routing</div>
           </div>
         </div>
       </header>

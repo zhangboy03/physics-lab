@@ -26,3 +26,4 @@ dist-ssr
 # Local planning / source assets not required for deployment
 *.pdf
 *.key
+.gstack/
